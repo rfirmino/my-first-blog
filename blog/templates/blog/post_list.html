@@ -11,25 +11,11 @@
 		<hr>
 		
 		<div>
-			<h3><a href="">Post 01</a></h3>
-			<p>Exemplo de post</p>
-			<em>publicado em: </em>
-		</div>
-		
-		<hr>
-		
-		<div>
-			<h3><a href="">Post 02</a></h3>
-			<p>Exemplo de post</p>
-			<em>publicado em: </em>
-		</div>
-		
-		<hr>
-		
-		<div>
-			<h3><a href="">Post 03</a></h3>
-			<p>Exemplo de post</p>
-			<em>publicado em: </em>
+			{% for post in posts %}
+				<h3><a href="">{{ post.title }}</a></h3>
+				<p>{{ post.text|linebreaksbr }}</p>
+				<em>publicado em: {{ post.published_date }}</em>
+			{% endfor %}
 		</div>
 		
 		<hr>
