@@ -1,24 +1,35 @@
+{% load staticfiles %}
 <html>
 	<head>
 		<title>Firmino's blog</title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Sansita&subset=latin,latin-ext">
 	</head>
+	
 	<body>
-		<div>
+		<div class="page-header">
 			<h1><a href="">Firmino's Blog</a></h1>
 			<p><em>Blog pessoal com o intuito de se familiarizar com django, python, html e afins.</em></p>
 		</div>
-		
-		<hr>
-		
-		<div>
-			{% for post in posts %}
-				<h3><a href="">{{ post.title }}</a></h3>
-				<p>{{ post.text|linebreaksbr }}</p>
-				<em>publicado em: {{ post.published_date }}</em>
-			{% endfor %}
+
+		<div class="content container">
+			<div class="row">
+				<div class="col-md-8">
+					{% for post in posts %}
+						<div class="post">
+							<h3><a href="">{{ post.title }}</a></h3>
+							<p>{{ post.text|linebreaksbr }}</p>
+							<div class="date">
+								<em>publicado em: {{ post.published_date }}</em>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>		
 		</div>
 		
-		<hr>
-		
 	</body>
+	
 </html>
