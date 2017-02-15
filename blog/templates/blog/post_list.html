@@ -17,7 +17,7 @@
 				<div class="post">
 					<h3><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
 					<img src="static/img/{{ post.id }}.png" width="300" height="89">
-					<p>{{ post.text|safe|truncatewords:"66"|linebreaksbr }}</p>
+					<p>{{ post.text|safe|truncatewords:"12"|linebreaksbr }}</p>
 					<a href="{% url 'post_detail' pk=post.pk %}">leia mais</a>
 					<div class="date">
 						<em>publicado em: {{ post.published_date }}</em>
