@@ -13,17 +13,16 @@
 	<body>
 	
 		{% block content %}
-			{% for post in posts %}
-				<div class="post">
-					<h3><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
-					<img src="static/img/{{ post.id }}.png" width="300" height="89">
-					<p>{{ post.text|safe|truncatewords:"66"|linebreaksbr }}</p>
-					<a href="{% url 'post_detail' pk=post.pk %}">leia mais</a>
+			<div class="post">
+				<img src="/static/img/{{ post.id }}.png">
+				<h3><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
+				<p>{{ post.text|linebreaksbr }}</p>
+				{% if post.published_date %}
 					<div class="date">
 						<em>publicado em: {{ post.published_date }}</em>
 					</div>
-				</div>
-			{% endfor %}
+				{% endif %}
+			</div>
 		{% endblock content %}
 		
 	</body>

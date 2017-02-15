@@ -1,4 +1,6 @@
 *.pyc
+*.png
+img
 __pycache__
 myenv
 db.sqlite3
