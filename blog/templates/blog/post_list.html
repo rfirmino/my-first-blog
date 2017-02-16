@@ -20,7 +20,7 @@
 					<p>{{ post.text|safe|truncatewords:"12"|linebreaksbr }}</p>
 					<a href="{% url 'post_detail' pk=post.pk %}">leia mais</a>
 					<div class="date">
-						<em>publicado em: {{ post.published_date }}</em>
+						<em>publicado em: {{ post.created_date }}</em>
 					</div>
 				</div>
 			{% endfor %}
