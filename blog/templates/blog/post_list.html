@@ -20,7 +20,13 @@
 					<p>{{ post.text|safe|truncatewords:"12"|linebreaksbr }}</p>
 					<a href="{% url 'post_detail' pk=post.pk %}">leia mais</a>
 					<div class="date">
-						<em>publicado em: {{ post.created_date }}</em>
+						<em>publicado em: &nbsp {{ post.created_date }}</em> &nbsp | &nbsp <a href="{% url 'post_detail' pk=post.pk %}">
+						{% if post.approved_comments.count < 2%}
+							{{ post.approved_comments.count }} comentário
+						{% else %}
+							{{ post.approved_comments.count }} comentários
+						{% endif %}
+					</a>
 					</div>
 				</div>
 			{% endfor %}
