@@ -14,23 +14,21 @@
 	
 		{% block content %}
 			<div class="post">
-				<img src="/static/img/{{ post.id }}.png">
-				<h3><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>&nbsp&nbsp
+				<h3><a href="{% url 'post_detail' pk=post.pk %}" class="a-title">{{ post.title }}</a>&nbsp&nbsp
 				{% if user.is_authenticated %}
 						<a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
 				{% endif %}
 				</h3>
-				<p>{{ post.text|safe|linebreaksbr }}</p>
+				<img src="/static/img/{{ post.id }}.png">
+				<p class="p-title">{{ post.text|safe|linebreaksbr }}</p>
 				{% if post.published_date %}
 					<div class="date">
 						<em>publicado em: {{ post.created_date }}</em>
 					</div>
 				{% endif %}
 			</div>
-			
-			<hr>
 
-			<h1>Comentários:</h1><br>
+			<h1><p class="p-title">Comentários:</p></h1><br>
 			
 			{% for comment in post.comments.all %}
 				{% if user.is_authenticated or comment.approved_comment %}
@@ -43,15 +41,13 @@
 							<a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
 						{% endif %}
 						</div>
-						<hr>
 					</div>
 				{% endif %}
 			{% empty %}
-				<p>Nenhum comentário adicionado.</p><br>
+				<p class="p-title">Nenhum comentário adicionado.</p><br>
 			{% endfor %}
 			<a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Deixe um comentário</a>
 		{% endblock content %}
-		
 	</body>
 	
 </html>

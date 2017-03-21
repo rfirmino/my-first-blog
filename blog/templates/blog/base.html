@@ -14,18 +14,29 @@
 				<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
 			{% endif %}
 			<h1><a href="/">Firmino's Blog</a></h1>
-			<p><em>Blog pessoal com o intuito de se familiarizar com django, python, html e afins.</em></p>
-		</div>
-
-		<div class="content container">
-			<div class="row">
-				<div class="col-md-8">
-					{% block content %}
-					{% endblock %}
-				</div>
-			</div>		
+			<p class="p-title"><em>Blog pessoal com o intuito de se familiarizar com django, python, html e afins.</em></p>
 		</div>
 		
+		<div class="left">
+			<table class="table-base">
+				<tr>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+		
+		<div class="center">
+			{% block content %}
+			{% endblock %}
+		</div>
+		
+		<div class="right">
+			<table class="table-base">
+				<tr>
+					<td></td>
+				</tr>
+			</table>
+		</div>
 	</body>
 	
 </html>

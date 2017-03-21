@@ -1,25 +1,85 @@
 body {
-	font-family: 'Sansita'
+	font-family: 'Sansita';
+	background-color: #31157b;
+	
 }
 
 .page-header {
-	background-color: #05BEFC;
+	background-color: #000000;
 	margin-top: 0;
-	padding: 20px 20px 20px 40px;
+	width: 100%;
+	position: fixed;
+	z-index: 1;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
     color: #FFFFFF;
     font-size: 36pt;
     text-decoration: none;
+	margin-left: 20px;
 }
 
-.content {
+.page-header p{
 	margin-left: 40px;
 }
 
+.center {
+	width: 60%;
+	padding-top: 140px;
+	display: inline-block;
+}
+
+.left {
+	padding-top: 140px;
+	padding-left: 20px;
+	float: left;
+	width: 20%;
+}
+
+.right {
+	padding-top: 140px;
+	float: right;
+	width: 20%;
+}
+
+.td-img {
+	padding-left: 10px;
+	
+}
+
+.td-title {
+	padding-left: 10px;
+	padding-bottom: 25px;
+	padding-right: 20px;
+}
+
+.table-list {
+	background-color: #13092e;
+	width: 90%;
+}
+
+.table-base {
+	background-color: #13092e;
+	width: 90%;
+	height: 100%;
+}
+
+.img-list {
+	width: 220px; 
+	height: 130px;
+}
+
+.a-title {
+	color: #FFFFFF;
+}
+
+.p-title, ol {
+	color: #878688;
+	padding-top: 20px;
+}
+
 .date {
-	color: #828282;
+	color: #6d47d2;
 }
 
 .save {
@@ -38,13 +98,14 @@ body {
 }
 
 .post {
-    margin-bottom: 70px;
+    margin-bottom: 30px;
 }
 
-.post h1 a, .post h1 a:visited {
+.post a:hover, .post a:visited:hover {
     color: #000000;
 }
 
 .comment {
 	margin: 20px 0px 20px 20px;
+	color: #878688;
 }

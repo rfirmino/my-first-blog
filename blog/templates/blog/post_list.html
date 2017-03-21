@@ -6,7 +6,7 @@
 		<title>Firmino's blog</title>
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-		<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+		<link type="text/css" rel="stylesheet" href="{% static 'css/blog.css'">
 		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Sansita&subset=latin,latin-ext">
 	</head>
 	
@@ -14,21 +14,28 @@
 	
 		{% block content %}
 			{% for post in posts %}
-				<div class="post">
-					<h3><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
-					<img src="static/img/{{ post.id }}.png" width="300" height="89">
-					<p>{{ post.text|safe|truncatewords:"12"|linebreaksbr }}</p>
-					<a href="{% url 'post_detail' pk=post.pk %}">leia mais</a>
-					<div class="date">
-						<em>publicado em: &nbsp {{ post.created_date }}</em> &nbsp | &nbsp <a href="{% url 'post_detail' pk=post.pk %}">
-						{% if post.approved_comments.count < 2%}
-							{{ post.approved_comments.count }} comentário
-						{% else %}
-							{{ post.approved_comments.count }} comentários
-						{% endif %}
-					</a>
-					</div>
-				</div>
+				<br>
+				<table class="table-list">
+					<tr>
+						<td class="td-img"><img class="img-list" src="static/img/{{ post.id }}.png"></td>
+						<td class="td-title">
+							<h3><a href="{% url 'post_detail' pk=post.pk %}" class="a-title">{{ post.title }}</a></h3>
+							<div class="date">
+								<em>publicado em: &nbsp {{ post.created_date }}</em> &nbsp | &nbsp 
+								<a href="{% url 'post_detail' pk=post.pk %}">
+									{% if post.approved_comments.count < 2%}
+										{{ post.approved_comments.count }} comentário
+									{% else %}
+										{{ post.approved_comments.count }} comentários
+									{% endif %}
+								</a>
+							</div>
+							<p class="p-title">{{ post.text|safe|truncatewords:"12"|linebreaksbr }}</p>
+							<a href="{% url 'post_detail' pk=post.pk %}">leia mais</a>
+						</td>
+					</tr>
+				</table>
+				<br>
 			{% endfor %}
 		{% endblock content %}
 		
